@@ -1,0 +1,71 @@
+<!-- //https://docs.amplify.aws/ui/auth/authenticator/q/framework/angular#recommended-usage -->
+<h3>New Restaurant</h3>
+<div>
+    <form [formGroup]="createForm" (ngSubmit)="onCreate(createForm.value)">
+      <div>
+        <label>Name: </label>
+        <input type="text" formControlName="name">
+      </div>
+      <div>
+        <label>Description: </label>
+        <input type="text" formControlName="description">
+      </div>
+      <!-- <div>
+        <label>City: </label>
+        <input type="text" formControlName="city">
+      </div> -->
+      <button type="submit">Submit</button>
+    </form>
+</div>
+
+<h3>Restaurants</h3>
+<div>
+  <span *ngIf="loading;">Loading...</span>
+  <div *ngFor="let restaurant of restaurants">
+    <div>
+      RestaurantId: {{ restaurant.id }}
+    </div>
+    <div>
+      {{ restaurant.name }}
+    </div>
+  </div>
+</div>
+<!-- <h3>Newly Added Restaurants</h3>
+<div>
+  <span *ngIf="loading;">Loading...</span>
+  <div *ngFor="let restaurant of newrestaurants">
+    {{ restaurant.name }}
+  </div>
+</div> -->
+<div style="text-align:left">
+   <div>
+     <div>Content: <input type="text" #content></div>
+   </div>
+   <!-- <div>
+   Location: <input type="text" #location>
+  </div> -->
+  <div>
+    RestaurantId <input type="text" #restaurantId>
+  </div>
+  <div>
+    <button (click)="createComment(content.value, restaurantId.value)">Add Comment</button>
+  </div>
+</div>
+<h3>Comments on Restaurants</h3>
+<div>
+  <div>
+    <div>{{ restaurantComment }}</div>
+  </div>
+  <!-- <span *ngIf="loading;">Loading...</span>
+  <div *ngFor="let restaurant of restaurantComments">
+    {{ restaurant.content }}
+    {{ restaurant.id }}
+  </div> -->
+</div>
+
+<div>
+  Subscribe Area
+  <div>
+    <button (click)="subscribeForComments(restaurantId.value)">Subscribe for Comments</button>
+  </div>
+</div>

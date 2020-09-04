@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -18,4 +18,11 @@
   </li>
 </ul>
 
+<router-outlet></router-outlet> -->
+
+<div>
+  <a [routerLink]="['login']" routerLinkActive="active">login</a> |
+  <a [routerLink]="['home']" routerLinkActive="active">home</a>
+</div>
 <router-outlet></router-outlet>
+<!-- <amplify-authenticator></amplify-authenticator> -->

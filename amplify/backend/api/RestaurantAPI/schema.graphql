@@ -1,0 +1,17 @@
+type Restaurant @model {
+  id: ID!
+  name: String
+  description: String
+  comments: [RestaurantComment] @connection
+}
+
+type RestaurantComment @model {
+  id: ID!
+  content: String
+  restaurantCommentsId: ID!
+}
+
+type Subscription {
+  onCommentsByRestaurantId(restaurantCommentsId: ID!) : RestaurantComment
+    @aws_subscribe(mutations: ["createRestaurantComment"])
+}

@@ -1,0 +1,28 @@
+{
+	"api": {
+		"RestaurantAPI": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"apiKeyExpirationDays": 60,
+							"description": "Restaurant"
+						}
+					},
+					"additionalAuthenticationProviders": []
+				}
+			}
+		}
+	},
+	"auth": {
+		"amplifyapp00c4383d": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
